@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class Player_Input : MonoBehaviour
 {
-    public InputSystem_Actions playerActions;
+    public Player_Actions playerActions;
 
     //player input controls
     public InputAction move;
@@ -13,16 +13,14 @@ public class Player_Input : MonoBehaviour
     private InputAction jump;
 
     //player actions
-    public static Action moveAction;
     public static Action interactAction;
     public static Action crouchAction;
     public static Action jumpAction;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
-        playerActions = new InputSystem_Actions();
-        playerActions.Player.Enable();
+        playerActions = new Player_Actions();
     }
 
     private void OnEnable()

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Player_Move : MonoBehaviour
 {
@@ -23,12 +24,13 @@ public class Player_Move : MonoBehaviour
 
     private void MovePlayer()
     {
-        Vector3 moveInput = input.move.ReadValue<Vector3>();
+        Vector3 moveInput = input.move.ReadValue<Vector2>();
 
         float horizontalMovement = moveInput.x;
         float verticalMovement = moveInput.y;
-        Vector3 moveDirect = transform.forward * verticalMovement + transform.right * horizontalMovement;
 
-        controller.Move(moveDirect * Time.deltaTime);
+        Vector3 moveDirection = transform.forward * verticalMovement + transform.right * horizontalMovement;
+
+        controller.Move(moveDirection * moveSpeed * Time.deltaTime);
     }
 }
