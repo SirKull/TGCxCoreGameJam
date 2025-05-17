@@ -6496,7 +6496,7 @@ CharacterController:
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
+  m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &1731944244
 CapsuleCollider:
@@ -6602,9 +6602,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 742891127}
-  gravity: 1
+  gravity: 9.81
   moveSpeed: 10
-  jumpHeight: 5
+  jumpHeight: 2
+  isGrounded: 0
 --- !u!43 &1907382724
 Mesh:
   m_ObjectHideFlags: 0
