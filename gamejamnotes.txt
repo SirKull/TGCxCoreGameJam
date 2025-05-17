@@ -1,0 +1,60 @@
+resource management game
+	giving out resources, managing sharing abundance
+	management sim - mostly ui/ux
+
+village simulator 
+	helping villagers, improving their lives
+	2.5d, moving around, talking to people, interacting
+	villagers have goals you're trying to help with
+	over time the villagers either achieve their goals or leave
+
+	one family trying to figure out what to do
+	multiple households within this family
+
+	family members trying to figure out what to do
+
+	temporary mailman for a week
+		make decisions on the family
+
+	college acceptance letter - sent to grandparents 
+		the errors are the moral decisions
+		ambiguity in where you deliver - your decision
+
+	world/characters improve visually based on the player actions
+
+	stray kitty teaching the generosity 
+		stray cat out on the town
+		stray cat is by the store at the end of the day
+		have the choice to help the cat out
+		teaches the generosity aspect of the game
+
+gameplay - 7 days? 
+
+	wake up
+
+	incoming mail mini-game
+		who's address
+		who's name
+		moral decision
+		
+	deliver mail (mail based morality decisions)
+
+	check on each villager
+
+	outcoming mail
+		stamping
+		filling stuff out
+
+	shop? 
+		get certain gifts/stuff that helps people
+		post work responsibilities - connecting/helping people based on what you learned throughout the day
+
+temporary shift ends
+
+you go back to the city - no time to be generous? 
+
+get letter/postcard 
+	village months/years later, see outcome
+
+
+	
