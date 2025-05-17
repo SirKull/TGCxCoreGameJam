@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 public class Player_Move : MonoBehaviour
 {
     private CharacterController controller;
+    private CapsuleCollider capsuleCollider;
     public Player_Input input;
 
     [Header("Player Stats")]
@@ -22,18 +23,24 @@ public class Player_Move : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        capsuleCollider = GetComponent<CapsuleCollider>();
         Player_Input.jumpAction += Jump;
+        Player_Input.crouchAction += Crouch;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //store character controller grounded
         isGrounded = controller.isGrounded;
 
         if (isGrounded)
         {
+            //reset the grounded timer so the player can't spam jump
             groundedTimer = 0.2f;
 
+            // 0 out the vertical velocity when player lands
+            // jumping was inconsistent
             if(verticalVelocity < 0)
             {
                 verticalVelocity = 0;
@@ -76,11 +83,15 @@ public class Player_Move : MonoBehaviour
 
     private void Jump()
     {
-        if (groundedTimer > 0)
+        if (groundedTimer > 0 && isGrounded)
         {
             groundedTimer = 0;
 
             verticalVelocity += Mathf.Sqrt(jumpHeight * 2.0f * gravity);
         }
+    }
+
+    private void Crouch()
+    {
     }
 }
