@@ -255,6 +255,7 @@ MonoBehaviour:
   gravity: 9.81
   moveSpeed: 8
   jumpHeight: 2
+  maxJump: 1
   isGrounded: 0
 --- !u!114 &8668944850535102920
 MonoBehaviour:

@@ -1,4 +1,6 @@
+using UnityEditor.SceneTemplate;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 public class Player_Move : MonoBehaviour
@@ -8,24 +10,41 @@ public class Player_Move : MonoBehaviour
     public Player_Input input;
 
     [Header("Player Stats")]
-    [SerializeField] private float gravity = 9.81f;
+    [SerializeField] private float defaultGravity = 9.81f;
+    [SerializeField] private float glideGravity = 4.9f;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpHeight;
+    [SerializeField] private int maxJump = 2;
+
+    private float gravity;
+    private int jumpCount;
     private float verticalVelocity;
     private float groundedTimer;
+
     private Vector3 moveDirection;
     private Vector3 velocity;
 
     //checks
     public bool isGrounded;
 
+    //events
+    public UnityEvent jumpEvent = new UnityEvent();
+    public UnityEvent crouchEvent = new UnityEvent();
+    public UnityEvent glideEvent = new UnityEvent();
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        jumpCount = maxJump;
+        gravity = defaultGravity;
+
         controller = GetComponent<CharacterController>();
         capsuleCollider = GetComponent<CapsuleCollider>();
         Player_Input.jumpAction += Jump;
         Player_Input.crouchAction += Crouch;
+        Player_Input.standAction += Stand;
+        Player_Input.glideAction += StartGlide;
+        Player_Input.glideStopAction += StopGlide;
     }
 
     // Update is called once per frame
@@ -39,9 +58,15 @@ public class Player_Move : MonoBehaviour
             //reset the grounded timer so the player can't spam jump
             groundedTimer = 0.2f;
 
+            //reset jump count
+            jumpCount = maxJump;
+
+            //reset gravity 
+            gravity = defaultGravity;
+
             // 0 out the vertical velocity when player lands
             // jumping was inconsistent
-            if(verticalVelocity < 0)
+            if (verticalVelocity < 0)
             {
                 verticalVelocity = 0;
             }
@@ -83,9 +108,12 @@ public class Player_Move : MonoBehaviour
 
     private void Jump()
     {
-        if (groundedTimer > 0 && isGrounded)
+        if (groundedTimer > 0 && isGrounded || jumpCount > 0)
         {
-            groundedTimer = 0;
+            jumpEvent?.Invoke();
+            jumpCount--;
+
+            groundedTimer = 0f;
 
             verticalVelocity += Mathf.Sqrt(jumpHeight * 2.0f * gravity);
         }
@@ -93,5 +121,30 @@ public class Player_Move : MonoBehaviour
 
     private void Crouch()
     {
+        crouchEvent?.Invoke();
+        capsuleCollider.height = 1f;
+        controller.height = 1f;
+    }
+    private void Stand()
+    {
+        capsuleCollider.height = 2f;
+        controller.height = 2f;
+    }
+
+    private void StartGlide()
+    {
+        if (!isGrounded)
+        {
+            glideEvent?.Invoke();
+            //reduce overall gravity
+            gravity = glideGravity;
+            //reset vertical velocity to prevent super jumping
+            verticalVelocity = 0f;
+        }
+    }
+    private void StopGlide()
+    {
+        //reset gravity
+        gravity = defaultGravity;
     }
 }

@@ -16,8 +16,6 @@ public class Level_Manager : MonoBehaviour
         float zPos = PlayerPrefs.GetFloat("Z");
         exitPosition = new Vector3(xPos, yPos, zPos);
 
-        Debug.Log(exitPosition);
-
         player.position = exitPosition;
         controller.enabled = true;
     }
