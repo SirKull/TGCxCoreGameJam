@@ -1,0 +1,24 @@
+level manager
+	what day is it
+	adds letters to letter list
+click button
+	take letter object out of list
+	letter follows cursor
+	drag to table
+	letter is removed from list, moved to table
+table
+	letter image is instantiated based on the scriptable object index
+	check index against dictionary of all images
+	click letter to have it follow cursor again
+	drag to bag
+Bag
+	onmouseover UI element
+	if cursor has object parented to it
+	add letter to that area list
+Deliver mail
+	check if letter object address int matches bag address int
+	if object in list doesn't match up, "something's not quite right"
+	if object in list matches up, load appropriate scene
+	day++
+	
+	
