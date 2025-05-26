@@ -4,10 +4,12 @@ using UnityEngine.EventSystems;
 
 public class Address_Bag : MonoBehaviour
 {
+    //references
     private Minigame_Manager manager;
+    public Minigame_Data data;
+    private Letter heldLetter;
 
-    public bool canClick;
-
+    private bool canClick;
     public int addressValue;
 
     void Start()
@@ -19,6 +21,7 @@ public class Address_Bag : MonoBehaviour
     {
         if(collision.gameObject.tag == "Letter")
         {
+            heldLetter = collision.GetComponent<Letter>();
             canClick = true;
         }
     }
@@ -35,16 +38,15 @@ public class Address_Bag : MonoBehaviour
     {
         if (canClick)
         {
-           Letter heldLetter = FindAnyObjectByType<Letter>();
-           heldLetter.SetDownLetter();
+            heldLetter.SetDownLetter();
 
-/*           for(int i = 0; i < addressValue; i++)
+            for(int i = 0; i < data.addresses.Count; i++)
             {
-                if(heldLetter.addressValue == addressValue)
+                if((addressValue - 1) == i)
                 {
-
+                    data.addresses[i].Add(heldLetter.addressValue);
                 }
-            }*/
+            }
         }
     }
 }
