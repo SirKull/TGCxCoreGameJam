@@ -2,11 +2,11 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class Address_Bag : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class Address_Bag : MonoBehaviour
 {
     private Minigame_Manager manager;
 
-    private bool canClick;
+    public bool canClick;
 
     public int addressValue;
 
@@ -15,14 +15,20 @@ public class Address_Bag : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         manager = FindAnyObjectByType<Minigame_Manager>();
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        canClick = true;
+        if(collision.gameObject.tag == "Letter")
+        {
+            canClick = true;
+        }
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    public void OnTriggerExit2D(Collider2D collision)
     {
-        canClick = false;
+        if (collision.gameObject.tag == "Letter")
+        {
+            canClick = false;
+        }
     }
 
     public void OnClick()
@@ -31,10 +37,14 @@ public class Address_Bag : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
            Letter heldLetter = FindAnyObjectByType<Letter>();
            heldLetter.SetDownLetter();
-           if(heldLetter.addressValue != addressValue)
+
+/*           for(int i = 0; i < addressValue; i++)
             {
-                manager.lettersCorrect = false;
-            }
+                if(heldLetter.addressValue == addressValue)
+                {
+
+                }
+            }*/
         }
     }
 }

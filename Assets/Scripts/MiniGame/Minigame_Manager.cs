@@ -16,6 +16,9 @@ public class Minigame_Manager : MonoBehaviour
     //store held letter values;
     public int heldLetterIndex;
 
+    //list of lists
+    public List<List<SO_Letter>> letterDays = new List<List<SO_Letter>>();
+
     //lists of each day's letters
     //must be configured in inspector
     public List<SO_Letter> day1Letters = new List<SO_Letter>();
@@ -35,6 +38,12 @@ public class Minigame_Manager : MonoBehaviour
     {
         buttonLetter.grabLetterEvent.AddListener(GetLetter);
 
+        letterDays.Add(day1Letters);
+        letterDays.Add(day2Letters);
+        letterDays.Add(day3Letters);
+        letterDays.Add(day4Letters);
+        letterDays.Add(day5Letters);
+
         //day = PlayerPrefs.GetInt("Day");
         day = 1;
 
@@ -45,40 +54,17 @@ public class Minigame_Manager : MonoBehaviour
     {
         letterList = new List<SO_Letter>();
 
-        //this is dumb
-        if (_day == 1)
+        //5 is number of days
+        for(int i = 0; i < 5; i++)
         {
-            foreach(SO_Letter letter in day1Letters)
+            //have to subtract 1 from _day
+            //lists store first position as "0"
+            if(i == (_day - 1))
             {
-                letterList.Add(letter);
-            }
-        }
-        if(_day == 2)
-        {
-            foreach (SO_Letter letter in day2Letters)
-            {
-                letterList.Add(letter);
-            }
-        }
-        if (_day == 3)
-        {
-            foreach (SO_Letter letter in day3Letters)
-            {
-                letterList.Add(letter);
-            }
-        }
-        if (_day == 4)
-        {
-            foreach (SO_Letter letter in day4Letters)
-            {
-                letterList.Add(letter);
-            }
-        }
-        if (_day == 5)
-        {
-            foreach (SO_Letter letter in day5Letters)
-            {
-                letterList.Add(letter);
+                foreach (SO_Letter letter in letterDays[i])
+                {
+                    letterList.Add(letter);
+                }
             }
         }
     }
