@@ -9,8 +9,6 @@ public class Table : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public GameObject letterExample;
 
-    public static Dictionary<int, GameObject> letterSprites = new Dictionary<int, GameObject>();
-
     public bool canClick;
 
     public UnityEvent setDownEvent = new UnityEvent();
@@ -18,8 +16,6 @@ public class Table : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void Awake()
     {
         manager = FindAnyObjectByType<Minigame_Manager>();
-
-        letterSprites.Add(1, letterExample);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -34,19 +30,10 @@ public class Table : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnClick()
     {
-        if (canClick)
+        if (canClick && manager.letterHeld)
         {
-            if (manager.letterHeld)
-            {
-                int id = manager.heldLetterIndex;
-                letterSprites[id].SetActive(true);
-                manager.ResetLetter();
-                canClick = false;
-            }
-            else
-            {
-                setDownEvent?.Invoke();
-            }
+            setDownEvent?.Invoke();
+            manager.ResetLetter();
         }
     }
 }

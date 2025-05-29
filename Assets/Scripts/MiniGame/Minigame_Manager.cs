@@ -10,28 +10,33 @@ public class Minigame_Manager : MonoBehaviour
 
     public bool lettersCorrect;
     public bool allLettersPlaced;
-
     public bool letterHeld;
+
+    //store total letters for day
+    public int totalLetters;
+
+    //number of letters placed
+    public int lettersPlaced;
 
     //store held letter values;
     public int heldLetterIndex;
 
     //list of lists
-    public List<List<SO_Letter>> letterDays = new List<List<SO_Letter>>();
+    public List<List<GameObject>> letterDays = new List<List<GameObject>>();
 
     //lists of each day's letters
     //must be configured in inspector
-    public List<SO_Letter> day1Letters = new List<SO_Letter>();
-    public List<SO_Letter> day2Letters = new List<SO_Letter>();
-    public List<SO_Letter> day3Letters = new List<SO_Letter>();
-    public List<SO_Letter> day4Letters = new List<SO_Letter>();
-    public List<SO_Letter> day5Letters = new List<SO_Letter>();
+    public List<GameObject> day1Letters = new List<GameObject>();
+    public List<GameObject> day2Letters = new List<GameObject>();
+    public List<GameObject> day3Letters = new List<GameObject>();
+    public List<GameObject> day4Letters = new List<GameObject>();
+    public List<GameObject> day5Letters = new List<GameObject>();
 
     //current day letter list
-    public List<SO_Letter> letterList;
+    public List<GameObject> letterList;
 
     //letter to get
-    public SO_Letter letterGrabbed;
+    public GameObject letterGrabbed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -48,11 +53,12 @@ public class Minigame_Manager : MonoBehaviour
         day = 1;
 
         SetWeekdays(day);
+        totalLetters = letterList.Count;
     }
 
     private void SetWeekdays(int _day)
     {
-        letterList = new List<SO_Letter>();
+        letterList = new List<GameObject>();
 
         //5 is number of days
         for(int i = 0; i < 5; i++)
@@ -61,7 +67,7 @@ public class Minigame_Manager : MonoBehaviour
             //lists store first position as "0"
             if(i == (_day - 1))
             {
-                foreach (SO_Letter letter in letterDays[i])
+                foreach (GameObject letter in letterDays[i])
                 {
                     letterList.Add(letter);
                 }
@@ -75,12 +81,20 @@ public class Minigame_Manager : MonoBehaviour
         {
             for (int i = 0; i < letterList.Count; i++)
             {
-                letterGrabbed = letterList[i];
+                if(i + 1 == letterList.Count)
+                {
+                    letterGrabbed = letterList[i];
+                    letterList[i].SetActive(true);
+                    Letter letterData = letterGrabbed.GetComponent<Letter>();
 
-                heldLetterIndex = letterGrabbed.letterIndex;
-                letterList.Remove(letterGrabbed);
+                    letterData.letterHeld = true;
+                    letterList.Remove(letterGrabbed);
+
+                    heldLetterIndex = letterData.letterID;
+
+                    letterHeld = true;
+                }
             }
-            letterHeld = true;
         }
     }
 
@@ -88,5 +102,19 @@ public class Minigame_Manager : MonoBehaviour
     {
         letterHeld = false;
         heldLetterIndex = 0;
+    }
+
+    public void CheckLettersPlaced(int letter)
+    {
+        lettersPlaced += letter;
+
+        if(lettersPlaced == totalLetters)
+        {
+            allLettersPlaced = true;
+        }
+        else
+        {
+            allLettersPlaced = false;
+        }
     }
 }
