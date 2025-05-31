@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class Address_Bag : MonoBehaviour
+public class Address_Bag : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     //references
     private Minigame_Manager manager;
@@ -10,11 +10,22 @@ public class Address_Bag : MonoBehaviour
     private Letter heldLetter;
 
     public bool canClick;
+    public bool selected;
     public int addressValue;
 
     void Start()
     {
         manager = FindAnyObjectByType<Minigame_Manager>();
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        selected = true;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        selected = false;
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -36,7 +47,7 @@ public class Address_Bag : MonoBehaviour
 
     public void OnClick()
     {
-        if (canClick)
+        if (canClick && selected)
         {
             heldLetter.SetDownLetter();
             manager.ResetLetter();
@@ -62,8 +73,10 @@ public class Address_Bag : MonoBehaviour
 
         for(int i = 0; i < data.addresses.Count; i++)
         {
+            //is not removing certain values
             if ((addressValue - 1) == i)
             {
+                //removes all - removing multiple values in the list
                 data.addresses[i].RemoveAt(letterID);
             }
         }
