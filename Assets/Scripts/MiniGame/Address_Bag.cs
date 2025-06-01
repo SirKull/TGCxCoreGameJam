@@ -76,8 +76,7 @@ public class Address_Bag : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             //is not removing certain values
             if ((addressValue - 1) == i)
             {
-                //removes all - removing multiple values in the list
-                data.addresses[i].RemoveAt(letterID);
+                data.addresses[i].RemoveAll(item => item == letterID);
             }
         }
         heldLetter.bagExitEvent.RemoveAllListeners();

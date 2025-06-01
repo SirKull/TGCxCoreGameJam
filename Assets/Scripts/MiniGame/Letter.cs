@@ -38,13 +38,13 @@ public class Letter : MonoBehaviour
         {
             letterHeld = true;
             manager.letterHeld = true;
+            manager.heldLetterIndex = letterID;
 
             if (letterInBag)
             {
                 bagExitEvent?.Invoke();
                 letterInBag = false;
             }
-            manager.heldLetterIndex = letterID;
         }
     }
 
