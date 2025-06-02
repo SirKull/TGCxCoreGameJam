@@ -40,7 +40,7 @@ public class Level_Manager : MonoBehaviour
         lettersDelivered++;
         if(lettersDelivered == data.lettersToDeliver)
         {
-            allLettersDelivered = false;
+            allLettersDelivered = true;
 
             foreach(List<int> address in data.addresses)
             {

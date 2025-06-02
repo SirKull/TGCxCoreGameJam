@@ -34,7 +34,7 @@ public class Mailbox : MonoBehaviour
             {
                 if ((addressNumber) - 1 == i)
                 {
-                    foreach (int j in data.addresses[i])
+                    for (int j = 0; j < data.addresses[i].Count; j++)
                     {
                         letters.Add(j);
                         deliverEvent?.Invoke();
