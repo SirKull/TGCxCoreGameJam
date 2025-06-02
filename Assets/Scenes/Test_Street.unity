@@ -2662,6 +2662,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1731944247}
   exitPosition: {x: 0, y: 0, z: 0}
+  mailboxes:
+  - {fileID: 2095370903}
+  - {fileID: 434760179}
+  - {fileID: 671944965}
+  - {fileID: 2060014340}
+  - {fileID: 2050133000}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2997,6 +3003,9 @@ MonoBehaviour:
   addressNumber: 3
   trigger: {fileID: 0}
   letters: 
+  deliverEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &486284162
 GameObject:
   m_ObjectHideFlags: 0
@@ -4116,6 +4125,9 @@ MonoBehaviour:
   addressNumber: 5
   trigger: {fileID: 0}
   letters: 
+  deliverEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &680025633
 GameObject:
   m_ObjectHideFlags: 0
@@ -9923,6 +9935,9 @@ MonoBehaviour:
   addressNumber: 1
   trigger: {fileID: 0}
   letters: 
+  deliverEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2060014338
 GameObject:
   m_ObjectHideFlags: 0
@@ -9972,6 +9987,9 @@ MonoBehaviour:
   addressNumber: 2
   trigger: {fileID: 0}
   letters: 
+  deliverEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2095370901
 GameObject:
   m_ObjectHideFlags: 0
@@ -10021,6 +10039,9 @@ MonoBehaviour:
   addressNumber: 4
   trigger: {fileID: 0}
   letters: 
+  deliverEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &7482240776855760657
 PrefabInstance:
   m_ObjectHideFlags: 0

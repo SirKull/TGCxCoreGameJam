@@ -11,6 +11,8 @@ public class Minigame_Data : MonoBehaviour
     public List<int> address3Letters = new List<int>();
     public List<int> address4Letters = new List<int>();
 
+    public int lettersToDeliver;
+
     public void Awake()
     {
         DontDestroyOnLoad(gameObject);

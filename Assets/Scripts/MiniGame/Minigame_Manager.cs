@@ -5,6 +5,7 @@ using UnityEngine;
 public class Minigame_Manager : MonoBehaviour
 {
     public Button_Letter buttonLetter;
+    public Minigame_Data data;
 
     public int day;
 
@@ -41,6 +42,8 @@ public class Minigame_Manager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
+        data = FindAnyObjectByType<Minigame_Data>();
+
         buttonLetter.grabLetterEvent.AddListener(GetLetter);
 
         letterDays.Add(day1Letters);
@@ -111,6 +114,7 @@ public class Minigame_Manager : MonoBehaviour
         if(lettersPlaced == totalLetters)
         {
             allLettersPlaced = true;
+            data.lettersToDeliver = totalLetters;
         }
         else
         {

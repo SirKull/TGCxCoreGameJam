@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Mailbox : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Mailbox : MonoBehaviour
     public Trigger_Interact trigger;
 
     public List<int> letters = new List<int>(); 
+    public UnityEvent deliverEvent = new UnityEvent();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -35,6 +37,7 @@ public class Mailbox : MonoBehaviour
                     foreach (int j in data.addresses[i])
                     {
                         letters.Add(j);
+                        deliverEvent?.Invoke();
                     }
                     mailDelivered = true;
                 }
