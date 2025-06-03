@@ -7,7 +7,7 @@ public class Address_Bag : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     //references
     private Minigame_Manager manager;
     public Minigame_Data data;
-    private Letter heldLetter;
+    private MinigameObject heldObject;
 
     public bool canClick;
     public bool selected;
@@ -32,7 +32,7 @@ public class Address_Bag : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         if(collision.gameObject.tag == "Letter")
         {
-            heldLetter = collision.GetComponent<Letter>();
+            heldObject = collision.GetComponent<MinigameObject>();
             canClick = true;
         }
     }
@@ -49,16 +49,16 @@ public class Address_Bag : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         if (canClick && selected)
         {
-            heldLetter.SetDownLetter();
+            heldObject.SetDown();
             manager.ResetLetter();
-            heldLetter.letterInBag = true;
-            heldLetter.bagExitEvent.AddListener(RemoveLetter);
+            heldObject.objectInBag = true;
+            heldObject.objectExitEvent.AddListener(RemoveLetter);
 
             for(int i = 0; i < data.addresses.Count; i++)
             {
                 if((addressValue - 1) == i)
                 {
-                    data.addresses[i].Add(heldLetter.addressValue);
+                    data.addresses[i].Add(heldObject.addressValue);
                 }
             }
             canClick = false;
@@ -79,7 +79,7 @@ public class Address_Bag : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
                 data.addresses[i].RemoveAll(item => item == letterID);
             }
         }
-        heldLetter.bagExitEvent.RemoveAllListeners();
+        heldObject.objectExitEvent.RemoveAllListeners();
         //subtract 1 letter
         manager.CheckLettersPlaced(-1);
     }

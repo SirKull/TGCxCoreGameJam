@@ -8,8 +8,11 @@ public class Dialogue : MonoBehaviour
 {
     public GameObject dialogueBox;
     
-    public TextMeshProUGUI textComponent;
+    public TextMeshProUGUI bodyText;
+    public TextMeshProUGUI titleText;
 
+    //character name
+    [SerializeField] private string charName;
     //lines in dialogue object
     public string[] lines;
     //character portraits
@@ -24,7 +27,9 @@ public class Dialogue : MonoBehaviour
     private void Start()
     {
         dialogueBox.SetActive(true);
-        textComponent.text = string.Empty;
+        titleText.text = charName;
+        bodyText.text = string.Empty;
+
         StartDialogue();
         charPortrait.sprite = charSprite;
     }
@@ -39,14 +44,14 @@ public class Dialogue : MonoBehaviour
     {
         foreach(char c in lines[index].ToCharArray())
         {
-            textComponent.text += c;
+            bodyText.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
     }
 
     public void OnClick()
     {
-        if (textComponent.text == lines[index])
+        if (bodyText.text == lines[index])
         {
             NextLine();
             SwapPortrait();
@@ -54,7 +59,7 @@ public class Dialogue : MonoBehaviour
         else
         {
             StopAllCoroutines();
-            textComponent.text = lines[index];
+            bodyText.text = lines[index];
         }
     }
 
@@ -63,7 +68,7 @@ public class Dialogue : MonoBehaviour
         if(index < lines.Length - 1)
         {
             index++;
-            textComponent.text = string.Empty;
+            bodyText.text = string.Empty;
             StartCoroutine(TypeLine());
         }
         else

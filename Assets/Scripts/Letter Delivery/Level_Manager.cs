@@ -48,4 +48,9 @@ public class Level_Manager : MonoBehaviour
             }
         }
     }
+
+    void CheckScore()
+    {
+
+    }
 }
