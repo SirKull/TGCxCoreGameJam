@@ -935,7 +935,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 603248784}
-  - component: {fileID: 603248785}
+  - component: {fileID: 603248791}
   - component: {fileID: 603248788}
   - component: {fileID: 603248787}
   - component: {fileID: 603248786}
@@ -967,29 +967,6 @@ RectTransform:
   m_AnchoredPosition: {x: 260.1, y: -75}
   m_SizeDelta: {x: 70, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &603248785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 603248783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1ff5c8bd89278943b08372853b4c5ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainCam: {fileID: 1541654945}
-  table: {fileID: 0}
-  manager: {fileID: 0}
-  objectID: 0
-  addressValue: 1
-  objectHeld: 0
-  objectInBag: 0
-  mousePosition: {x: 0, y: 0}
-  objectExitEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!222 &603248786
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1042,8 +1019,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 603248785}
-        m_TargetAssemblyTypeName: Letter, Assembly-CSharp
+      - m_Target: {fileID: 603248791}
+        m_TargetAssemblyTypeName: MinigameObject, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -1157,6 +1134,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &603248791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603248783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30368c2ebf697774da74d57faddd6d80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCam: {fileID: 0}
+  table: {fileID: 0}
+  manager: {fileID: 0}
+  objectID: 1
+  addressValue: 1
+  objectHeld: 0
+  objectInBag: 0
+  mousePosition: {x: 0, y: 0}
+  objectExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &751548413
 GameObject:
   m_ObjectHideFlags: 0
@@ -1892,7 +1892,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1114100069}
-        m_TargetAssemblyTypeName: Letter, Assembly-CSharp
+        m_TargetAssemblyTypeName: MinigameObject, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -1942,13 +1942,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1114100062}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1ff5c8bd89278943b08372853b4c5ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 30368c2ebf697774da74d57faddd6d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCam: {fileID: 1541654945}
+  mainCam: {fileID: 0}
   table: {fileID: 0}
   manager: {fileID: 0}
-  objectID: 0
+  objectID: 3
   addressValue: 3
   objectHeld: 0
   objectInBag: 0
@@ -2086,7 +2086,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1257543941}
-  - component: {fileID: 1257543940}
+  - component: {fileID: 1257543942}
   - component: {fileID: 1257543939}
   - component: {fileID: 1257543938}
   - component: {fileID: 1257543937}
@@ -2224,7 +2224,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1257543940}
+      - m_Target: {fileID: 1257543942}
         m_TargetAssemblyTypeName: MinigameObject, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
@@ -2266,29 +2266,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1257543940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1257543934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed16cb304a2640c47bcf81be41417aeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainCam: {fileID: 0}
-  table: {fileID: 0}
-  manager: {fileID: 0}
-  objectID: 0
-  addressValue: 0
-  objectHeld: 0
-  objectInBag: 0
-  mousePosition: {x: 0, y: 0}
-  objectExitEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!224 &1257543941
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2308,6 +2285,29 @@ RectTransform:
   m_AnchoredPosition: {x: 260.1, y: -75}
   m_SizeDelta: {x: 70, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1257543942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257543934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30368c2ebf697774da74d57faddd6d80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCam: {fileID: 0}
+  table: {fileID: 0}
+  manager: {fileID: 0}
+  objectID: 0
+  addressValue: 1
+  objectHeld: 0
+  objectInBag: 0
+  mousePosition: {x: 0, y: 0}
+  objectExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1268309275
 GameObject:
   m_ObjectHideFlags: 0
@@ -3598,7 +3598,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1865286824}
-        m_TargetAssemblyTypeName: Letter, Assembly-CSharp
+        m_TargetAssemblyTypeName: MinigameObject, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -3648,13 +3648,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1865286817}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1ff5c8bd89278943b08372853b4c5ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 30368c2ebf697774da74d57faddd6d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCam: {fileID: 1541654945}
+  mainCam: {fileID: 0}
   table: {fileID: 0}
   manager: {fileID: 0}
-  objectID: 0
+  objectID: 2
   addressValue: 2
   objectHeld: 0
   objectInBag: 0

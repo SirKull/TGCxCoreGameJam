@@ -2668,6 +2668,11 @@ MonoBehaviour:
   - {fileID: 671944965}
   - {fileID: 2060014340}
   - {fileID: 2050133000}
+  lettersDelivered: 0
+  allLettersDelivered: 0
+  data: {fileID: 0}
+  correctMailMoney: 3
+  adCommissionMoney: 1
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0

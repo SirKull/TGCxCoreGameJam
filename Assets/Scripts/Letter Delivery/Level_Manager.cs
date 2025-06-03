@@ -13,6 +13,10 @@ public class Level_Manager : MonoBehaviour
 
     public Minigame_Data data;
 
+    [Header("Scoring")]
+    public int correctMailMoney;
+    public int adCommissionMoney;
+
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -42,15 +46,28 @@ public class Level_Manager : MonoBehaviour
         {
             allLettersDelivered = true;
 
-            foreach(List<int> address in data.addresses)
-            {
-                address.Clear();
-            }
+            CheckScore();
         }
     }
 
     void CheckScore()
     {
-
+        for(int i = 0; i < data.addresses.Count; i++)
+        {
+            foreach (int addressVal in data.addresses[i])
+            {
+                if (addressVal == i + 1)
+                {
+                    int score = PlayerPrefs.GetInt("PlayerScore");
+                    score += correctMailMoney;
+                    Debug.Log(score);
+                    PlayerPrefs.SetInt("PlayerScore", score);
+                }
+                else
+                {
+                    Debug.Log("no score");
+                }
+            }
+        }
     }
 }

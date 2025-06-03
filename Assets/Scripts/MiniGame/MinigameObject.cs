@@ -13,7 +13,7 @@ public class MinigameObject : MonoBehaviour
     [Header("AD object ID is always 0")]
     public int objectID;
     //address (destination) ID
-    [Header("AD destination ID is always 0")]
+    [Header("AD destination ID is for commission")]
     public int addressValue;
 
     //check if ad is being held

@@ -58,7 +58,7 @@ public class Address_Bag : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             {
                 if((addressValue - 1) == i)
                 {
-                    data.addresses[i].Add(heldObject.addressValue);
+                    data.addresses[i].Add(heldObject.objectID);
                 }
             }
             canClick = false;
