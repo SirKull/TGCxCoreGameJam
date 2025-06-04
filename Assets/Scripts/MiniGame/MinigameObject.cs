@@ -42,7 +42,7 @@ public class MinigameObject : MonoBehaviour
             image.raycastTarget = false;
         }
     }
-    public void OnClick()
+    public virtual void OnClick()
     {
         if (!manager.objectHeld)
         {

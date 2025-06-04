@@ -7,7 +7,7 @@ public class Address_Bag : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     //references
     private Minigame_Manager manager;
     public Minigame_Data data;
-    private MinigameObject heldObject;
+    public MinigameObject heldObject;
 
     public bool canClick;
     public bool selected;
@@ -28,7 +28,7 @@ public class Address_Bag : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         selected = false;
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Letter")
         {
@@ -37,7 +37,7 @@ public class Address_Bag : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         }
     }
 
-    public void OnTriggerExit2D(Collider2D collision)
+    public virtual void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Letter")
         {
@@ -45,7 +45,7 @@ public class Address_Bag : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         }
     }
 
-    public void OnClick()
+    public virtual void OnClick()
     {
         if (canClick && selected)
         {
@@ -67,7 +67,7 @@ public class Address_Bag : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         }
     }
 
-    private void RemoveLetter()
+    public virtual void RemoveLetter()
     {
         int letterID = manager.heldLetterIndex;
 
