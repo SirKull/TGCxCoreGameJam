@@ -1,18 +1,37 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class Dialogue : MonoBehaviour
 {
-    public TextMeshProUGUI textComponent;
+    public GameObject dialogueBox;
+    
+    public TextMeshProUGUI bodyText;
+    public TextMeshProUGUI titleText;
+
+    //character name
+    [SerializeField] private string charName;
+    //lines in dialogue object
     public string[] lines;
+    //character portraits
+    public Sprite charSprite;
+    //character portrait destination
+    public Image charPortrait;
+
     public float textSpeed;
 
     private int index;
+
     private void Start()
     {
-        textComponent.text = string.Empty;
+        dialogueBox.SetActive(true);
+        titleText.text = charName;
+        bodyText.text = string.Empty;
+
         StartDialogue();
+        charPortrait.sprite = charSprite;
     }
 
     void StartDialogue()
@@ -25,21 +44,22 @@ public class Dialogue : MonoBehaviour
     {
         foreach(char c in lines[index].ToCharArray())
         {
-            textComponent.text += c;
+            bodyText.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
     }
 
     public void OnClick()
     {
-        if (textComponent.text == lines[index])
+        if (bodyText.text == lines[index])
         {
             NextLine();
+            SwapPortrait();
         }
         else
         {
             StopAllCoroutines();
-            textComponent.text = lines[index];
+            bodyText.text = lines[index];
         }
     }
 
@@ -48,12 +68,31 @@ public class Dialogue : MonoBehaviour
         if(index < lines.Length - 1)
         {
             index++;
-            textComponent.text = string.Empty;
+            bodyText.text = string.Empty;
             StartCoroutine(TypeLine());
         }
         else
         {
             gameObject.SetActive(false);
         }
+    }
+
+    //I may revisit this this one day
+    void SwapPortrait()
+    {
+/*        int key = lines[index].IndexOf("]");
+        string result = lines[index].Substring(1, key);
+
+        for (int i = 0; i < charSprites.Count; i++)
+        {
+            string val = i.ToString();
+
+            if (val == result)
+            {
+                charPortrait.sprite = charSprites[i];
+            }
+        }
+
+        text = lines[index].Substring(lines[index].IndexOf("]") + 1);*/
     }
 }

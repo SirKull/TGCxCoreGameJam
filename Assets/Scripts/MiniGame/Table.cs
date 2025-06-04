@@ -30,7 +30,7 @@ public class Table : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnClick()
     {
-        if (canClick && manager.letterHeld)
+        if (canClick && manager.objectHeld)
         {
             setDownEvent?.Invoke();
             manager.ResetLetter();

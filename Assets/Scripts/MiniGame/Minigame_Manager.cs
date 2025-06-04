@@ -11,7 +11,7 @@ public class Minigame_Manager : MonoBehaviour
 
     public bool lettersCorrect;
     public bool allLettersPlaced;
-    public bool letterHeld;
+    public bool objectHeld;
 
     //store total letters for day
     public int totalLetters;
@@ -80,7 +80,7 @@ public class Minigame_Manager : MonoBehaviour
 
     public void GetLetter()
     {
-        if (!letterHeld)
+        if (!objectHeld)
         {
             for (int i = 0; i < letterList.Count; i++)
             {
@@ -88,14 +88,14 @@ public class Minigame_Manager : MonoBehaviour
                 {
                     letterGrabbed = letterList[i];
                     letterList[i].SetActive(true);
-                    Letter letterData = letterGrabbed.GetComponent<Letter>();
+                    MinigameObject objectData = letterGrabbed.GetComponent<MinigameObject>();
 
-                    letterData.letterHeld = true;
+                    objectData.objectHeld = true;
                     letterList.Remove(letterGrabbed);
 
-                    heldLetterIndex = letterData.letterID;
+                    heldLetterIndex = objectData.objectID;
 
-                    letterHeld = true;
+                    objectHeld = true;
                 }
             }
         }
@@ -103,7 +103,7 @@ public class Minigame_Manager : MonoBehaviour
 
     public void ResetLetter()
     {
-        letterHeld = false;
+        objectHeld = false;
         heldLetterIndex = 0;
     }
 
