@@ -10,6 +10,7 @@ public class Tutorial_Exit : MonoBehaviour
     {
         if (manager.allLettersPlaced)
         {
+            PlayerPrefs.SetInt("Day", 1);
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
         }
     }

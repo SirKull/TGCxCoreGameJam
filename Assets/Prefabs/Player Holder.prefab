@@ -75,6 +75,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 3ca5bedb-73c2-43a5-8958-aacb5f8ba3b4
     m_ActionName: 'Player/Crouch[/Keyboard/ctrl]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: df56dd04-c021-42fd-8bc2-43d1de8ac275
+    m_ActionName: 'Player/Glide[/Keyboard/shift]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -252,11 +256,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 1955328170398568328}
-  gravity: 9.81
+  defaultGravity: 9.81
+  glideGravity: 4.9
   moveSpeed: 8
   jumpHeight: 2
   maxJump: 1
   isGrounded: 0
+  jumpEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  crouchEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  glideEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &8668944850535102920
 MonoBehaviour:
   m_ObjectHideFlags: 0
