@@ -18,6 +18,7 @@ public class Player_Move : MonoBehaviour
     [SerializeField] private float jumpHeight;
     [SerializeField] private int maxJump = 2;
     [SerializeField] private float smoothTime = 0.05f;
+    [SerializeField] private float slideSpeed = 6f;
 
     public bool canMove;
 
@@ -33,11 +34,14 @@ public class Player_Move : MonoBehaviour
     //checks
     public bool isGrounded;
     public bool isMoving;
+    public bool onSlope;
+    private Vector3 hitNormal;
 
     //events
     public UnityEvent jumpEvent = new UnityEvent();
     public UnityEvent landEvent = new UnityEvent();
     public UnityEvent glideEvent = new UnityEvent();
+    public UnityEvent midAirEvent = new UnityEvent();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -58,6 +62,8 @@ public class Player_Move : MonoBehaviour
     {
         //store character controller grounded
         isGrounded = controller.isGrounded;
+        //store onSlope
+        onSlope = Vector3.Angle(Vector3.up, hitNormal) >= controller.slopeLimit;
 
         if (isGrounded)
         {
@@ -84,7 +90,7 @@ public class Player_Move : MonoBehaviour
             }
         }
 
-        if(groundedTimer >= 0)
+        if (groundedTimer >= 0)
         {
             groundedTimer -= Time.deltaTime;
         }
@@ -109,13 +115,19 @@ public class Player_Move : MonoBehaviour
         float verticalMovement = moveInput.y;
 
         //store move direction
-        moveDirection = transform.forward * verticalMovement + transform.right * horizontalMovement;
+        moveDirection = -transform.forward * verticalMovement + -transform.right * horizontalMovement;
 
         //apply move direction to player velocity
         velocity = moveDirection * moveSpeed;
         
         //account for vertical velocity
         velocity.y = verticalVelocity;
+
+        if (onSlope)
+        {
+            velocity.x += ((1f - hitNormal.y) * hitNormal.x) * slideSpeed;
+            velocity.z += ((1f - hitNormal.y) * hitNormal.z) * slideSpeed;
+        }
 
         //move controller
         controller.Move(velocity * Time.deltaTime);
@@ -133,6 +145,11 @@ public class Player_Move : MonoBehaviour
         var angle = Mathf.SmoothDampAngle(pidgeModel.transform.eulerAngles.y, targetAngle, ref currentVelocity, smoothTime);
         //apply the target angle to the pidgeModel only
         pidgeModel.transform.rotation = Quaternion.Euler(0.0f, angle, 0.0f);
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        hitNormal = hit.normal;
     }
 
     private void Jump()

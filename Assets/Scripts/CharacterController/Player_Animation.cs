@@ -3,7 +3,7 @@ using Animancer;
 
 public class Player_Animation : MonoBehaviour
 {
-    private Player_Move playerMove;
+    [SerializeField] private Player_Move playerMove;
 
     [SerializeField] private AnimancerComponent animancer;
 
@@ -18,10 +18,9 @@ public class Player_Animation : MonoBehaviour
     {
         if(playerMove != null)
         {
-            playerMove = GetComponentInParent<Player_Move>();
-
             playerMove.jumpEvent.AddListener(Jump);
             playerMove.landEvent.AddListener(Land);
+            playerMove.midAirEvent.AddListener(MidAir);
         }
 
         jump.Events.OnEnd = MidAir;
