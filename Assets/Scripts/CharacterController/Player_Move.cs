@@ -1,3 +1,4 @@
+using System;
 using UnityEditor.SceneTemplate;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,6 +9,7 @@ public class Player_Move : MonoBehaviour
     private CharacterController controller;
     private CapsuleCollider capsuleCollider;
     public Player_Input input;
+    public GameObject pidgeModel;
 
     [Header("Player Stats")]
     [SerializeField] private float defaultGravity = 9.81f;
@@ -15,21 +17,24 @@ public class Player_Move : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpHeight;
     [SerializeField] private int maxJump = 2;
+    [SerializeField] private float smoothTime = 0.05f;
 
     private float gravity;
     private int jumpCount;
     private float verticalVelocity;
-    private float groundedTimer;
+    public float groundedTimer;
+    private float currentVelocity;
 
     private Vector3 moveDirection;
     private Vector3 velocity;
 
     //checks
     public bool isGrounded;
+    public bool isMoving;
 
     //events
     public UnityEvent jumpEvent = new UnityEvent();
-    public UnityEvent crouchEvent = new UnityEvent();
+    public UnityEvent landEvent = new UnityEvent();
     public UnityEvent glideEvent = new UnityEvent();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -41,7 +46,6 @@ public class Player_Move : MonoBehaviour
         controller = GetComponent<CharacterController>();
         capsuleCollider = GetComponent<CapsuleCollider>();
         Player_Input.jumpAction += Jump;
-        Player_Input.crouchAction += Crouch;
         Player_Input.standAction += Stand;
         Player_Input.glideAction += StartGlide;
         Player_Input.glideStopAction += StopGlide;
@@ -55,6 +59,12 @@ public class Player_Move : MonoBehaviour
 
         if (isGrounded)
         {
+            //check if player lands
+            if (groundedTimer < 0f)
+            {
+                landEvent?.Invoke();
+            }
+
             //reset the grounded timer so the player can't spam jump
             groundedTimer = 0.2f;
 
@@ -72,7 +82,7 @@ public class Player_Move : MonoBehaviour
             }
         }
 
-        if(groundedTimer > 0)
+        if(groundedTimer >= 0)
         {
             groundedTimer -= Time.deltaTime;
         }
@@ -104,6 +114,20 @@ public class Player_Move : MonoBehaviour
 
         //move controller
         controller.Move(velocity * Time.deltaTime);
+
+        if (moveInput.sqrMagnitude == 0)
+        {
+            isMoving = false;
+            return;
+        }
+
+        isMoving = true;
+        //store target angle based on the move direction
+        //convert radians to degrees
+        var targetAngle = Mathf.Atan2(moveDirection.x, moveDirection.z) * Mathf.Rad2Deg;
+        var angle = Mathf.SmoothDampAngle(pidgeModel.transform.eulerAngles.y, targetAngle, ref currentVelocity, smoothTime);
+        //apply the target angle to the pidgeModel only
+        pidgeModel.transform.rotation = Quaternion.Euler(0.0f, angle, 0.0f);
     }
 
     private void Jump()
@@ -117,13 +141,6 @@ public class Player_Move : MonoBehaviour
 
             verticalVelocity += Mathf.Sqrt(jumpHeight * 2.0f * gravity);
         }
-    }
-
-    private void Crouch()
-    {
-        crouchEvent?.Invoke();
-        capsuleCollider.height = 1f;
-        controller.height = 1f;
     }
     private void Stand()
     {

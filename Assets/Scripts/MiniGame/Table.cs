@@ -7,8 +7,6 @@ public class Table : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public Minigame_Manager manager;
 
-    public GameObject letterExample;
-
     public bool canClick;
 
     public UnityEvent setDownEvent = new UnityEvent();
@@ -28,7 +26,7 @@ public class Table : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         canClick = false;
     }
 
-    public void OnClick()
+    public virtual void OnClick()
     {
         if (canClick && manager.objectHeld)
         {

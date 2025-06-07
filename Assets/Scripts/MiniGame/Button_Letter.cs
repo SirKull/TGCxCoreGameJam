@@ -5,7 +5,7 @@ public class Button_Letter : MonoBehaviour
 {
     public UnityEvent grabLetterEvent = new UnityEvent();
 
-    public void OnClick()
+    public virtual void OnClick()
     {
         grabLetterEvent?.Invoke();
     }
