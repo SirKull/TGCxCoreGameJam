@@ -6,6 +6,8 @@ using UnityEngine;
 public class Tutorial_Manager : MonoBehaviour
 {
     //UI references
+
+    public Fade fade;
     //tutorial dialogue
     public GameObject dialogueBox;
     //textbox to print tutorial text to
@@ -50,6 +52,8 @@ public class Tutorial_Manager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        StartCoroutine(fade.FadeImage(true));
+
         dialogueBox.SetActive(true);
         WriteText(tutorialID);
         objectHeld = false;

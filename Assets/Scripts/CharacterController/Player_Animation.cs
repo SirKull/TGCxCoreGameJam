@@ -16,10 +16,13 @@ public class Player_Animation : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        playerMove = GetComponentInParent<Player_Move>();
+        if(playerMove != null)
+        {
+            playerMove = GetComponentInParent<Player_Move>();
 
-        playerMove.jumpEvent.AddListener(Jump);
-        playerMove.landEvent.AddListener(Land);
+            playerMove.jumpEvent.AddListener(Jump);
+            playerMove.landEvent.AddListener(Land);
+        }
 
         jump.Events.OnEnd = MidAir;
         land.Events.OnEnd = OnLand;
@@ -27,7 +30,10 @@ public class Player_Animation : MonoBehaviour
 
     private void Update()
     {
-        Move();
+        if(playerMove != null)
+        {
+            Move();
+        }
     }
 
     public void Move()

@@ -19,6 +19,8 @@ public class Player_Move : MonoBehaviour
     [SerializeField] private int maxJump = 2;
     [SerializeField] private float smoothTime = 0.05f;
 
+    public bool canMove;
+
     private float gravity;
     private int jumpCount;
     private float verticalVelocity;
@@ -87,7 +89,10 @@ public class Player_Move : MonoBehaviour
             groundedTimer -= Time.deltaTime;
         }
 
-        MovePlayer();
+        if (canMove)
+        {
+            MovePlayer();
+        }
     }
 
     private void MovePlayer()

@@ -935,6 +935,8 @@ MonoBehaviour:
   jumpHeight: 2
   maxJump: 1
   smoothTime: 0.05
+  canMove: 1
+  groundedTimer: 0
   isGrounded: 0
   isMoving: 0
   jumpEvent:
