@@ -830,6 +830,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueBox: {fileID: 1284635775}
+  characterPortrait: {fileID: 1357439244}
+  button: {fileID: 2023409567}
   bodyText: {fileID: 473555247}
   titleText: {fileID: 1230691012}
   charName: Bill
@@ -840,6 +842,7 @@ MonoBehaviour:
   charSprite: {fileID: 21300000, guid: 0142c0603af8e50419a14e93365dda22, type: 3}
   charPortrait: {fileID: 982770899}
   textSpeed: 0.3
+  index: 0
 --- !u!1 &2023409567
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Test_Minigame.unity
     guid: 97c7086d321a7a14397fe223b5e1d110
   - enabled: 1
-    path: Assets/Scenes/Tutorial_Minigame.unity
+    path: Assets/Scenes/Final Scenes/Tutorial_Minigame.unity
     guid: 4bd67b395ac69a542949b5b49e7fa43f
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 6a505975a555b7446afa9ccfebe2fece, type: 3}
