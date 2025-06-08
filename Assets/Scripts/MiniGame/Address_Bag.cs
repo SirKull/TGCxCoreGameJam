@@ -1,9 +1,13 @@
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 public class Address_Bag : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    public List<GameObject> letter3dObjects = new List<GameObject>();
+
+    public List<GameObject> letter2dObjects = new List<GameObject>();
+
     //references
     private Minigame_Manager manager;
     public Minigame_Data data;
@@ -11,11 +15,17 @@ public class Address_Bag : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public bool canClick;
     public bool selected;
+    public bool hasObject;
     public int addressValue;
 
     void Start()
     {
         manager = FindAnyObjectByType<Minigame_Manager>();
+
+        for (int i = 0; i < letter3dObjects.Count; i++)
+        {
+            letter3dObjects[i].SetActive(false);
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -52,18 +62,28 @@ public class Address_Bag : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             heldObject.SetDown();
             manager.ResetLetter();
             heldObject.objectInBag = true;
-            heldObject.objectExitEvent.AddListener(RemoveLetter);
+
+            letter2dObjects.Add(heldObject.gameObject);
 
             for(int i = 0; i < data.addresses.Count; i++)
             {
                 if((addressValue - 1) == i)
                 {
                     data.addresses[i].Add(heldObject.objectID);
+                    letter3dObjects[i].gameObject.SetActive(true);
+
+                    heldObject.TurnOffObject();
+                    hasObject = true;
                 }
             }
+
             canClick = false;
             //add 1 letter
             manager.CheckLettersPlaced(1);
+        }
+        else if (heldObject)
+        {
+            RemoveLetter();
         }
     }
 
@@ -73,13 +93,21 @@ public class Address_Bag : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         for(int i = 0; i < data.addresses.Count; i++)
         {
-            //is not removing certain values
             if ((addressValue - 1) == i)
             {
                 data.addresses[i].RemoveAll(item => item == letterID);
             }
         }
-        heldObject.objectExitEvent.RemoveAllListeners();
+        for(int i = 0; i <= letter2dObjects.Count; i++)
+        {
+            if(i == (letter2dObjects.Count - 1))
+            {
+                letter3dObjects[i].gameObject.SetActive(false);
+                MinigameObject targetObject = letter2dObjects[i].GetComponent<MinigameObject>();
+                targetObject.OnClick();
+                letter2dObjects.Remove(targetObject.gameObject);
+            }
+        }
         //subtract 1 letter
         manager.CheckLettersPlaced(-1);
     }
