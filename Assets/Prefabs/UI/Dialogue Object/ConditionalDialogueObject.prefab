@@ -27,15 +27,15 @@ RectTransform:
   m_GameObject: {fileID: 986986734192045787}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.759, y: 2.759, z: 2.759}
+  m_LocalScale: {x: 2.759, y: 3.1383626, z: 2.759}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 402865682045960466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -80.0929, y: 22.3071}
-  m_SizeDelta: {x: 88.3342, y: 88.3342}
+  m_AnchoredPosition: {x: -80.0929, y: 47.5719}
+  m_SizeDelta: {x: 88.3342, y: 106.6487}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7685189956332114165
 CanvasRenderer:
@@ -487,15 +487,15 @@ RectTransform:
   m_GameObject: {fileID: 5940447535051882053}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3388348092930794006}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -123.71387, y: 11.2468}
-  m_SizeDelta: {x: 1298.5781, y: 337.7875}
+  m_AnchoredPosition: {x: -138.88872, y: 59.0478}
+  m_SizeDelta: {x: 1328.9277, y: 478.9142}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3720524617749044170
 CanvasRenderer:
@@ -512,7 +512,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5940447535051882053}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -589,12 +589,15 @@ MonoBehaviour:
   dialogueBox: {fileID: 3198010652275602495}
   characterPortrait: {fileID: 1779890758160609441}
   background: {fileID: 5940447535051882053}
+  playerInventory: {fileID: 0}
+  endCondition: {fileID: 0}
   bodyText: {fileID: 8994094601956498284}
   titleText: {fileID: 377783384334667929}
   charName: 
   lines: []
   charSprite: {fileID: 0}
   charPortrait: {fileID: 2257448155176648336}
+  itemGive: 
   textSpeed: 0.05
   index: 0
   dialogueStarted: 0
