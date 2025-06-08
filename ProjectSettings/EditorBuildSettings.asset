@@ -6,20 +6,29 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Test_Street.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
-    path: Assets/Scenes/Test_Interior.unity
-    guid: 429c3c45ca2810b4f8c5ddf48e30b0a5
-  - enabled: 1
-    path: Assets/Scenes/Test_Interior2.unity
-    guid: a9d600edbc41cd34288482767689e6dd
-  - enabled: 1
-    path: Assets/Scenes/Test_Minigame.unity
-    guid: 97c7086d321a7a14397fe223b5e1d110
+    path: Assets/Scenes/Final Scenes/Main Menu.unity
+    guid: eb5ada75be9af2343916c48c6bdd933d
   - enabled: 1
     path: Assets/Scenes/Final Scenes/Tutorial_Minigame.unity
     guid: 4bd67b395ac69a542949b5b49e7fa43f
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/Scene_Intro.unity
+    guid: dee24635829a25a4285cffaa1371d71d
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/Item_Shop.unity
+    guid: 62c69668a5e460d4b9d934c333cbc999
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/Minigame_Final.unity
+    guid: 6f698e29e22825c4c9bd796fa6ff8aeb
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/Day_1_Delivery.unity
+    guid: 8da81ef218a29164083ed46eb824b31e
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/Day_1_Night.unity
+    guid: 1669987c10ec8a5458e9c023627c76d6
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/Initialize.unity
+    guid: cbba4b5e4a7dd70498632e1424c010d0
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 6a505975a555b7446afa9ccfebe2fece, type: 3}
   m_UseUCBPForAssetBundles: 0

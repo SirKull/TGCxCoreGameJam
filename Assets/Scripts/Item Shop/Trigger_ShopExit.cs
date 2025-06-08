@@ -19,7 +19,7 @@ public class Trigger_ShopExit : MonoBehaviour
         trigger = GetComponentInChildren<Trigger_Interact>();
         trigger.triggerEvent.AddListener(EnterBuilding);
 
-        sceneName = PlayerPrefs.GetString("CurrentDay");
+        //sceneName = PlayerPrefs.GetString("CurrentDay");
     }
 
     private void Awake()

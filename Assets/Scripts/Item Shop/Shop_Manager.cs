@@ -13,6 +13,7 @@ public class Shop_Manager : MonoBehaviour
     void Awake()
     {
         playerCash = PlayerPrefs.GetInt("PlayerScore");
+        moneyText.text = playerCash.ToString();
         canShop = false;
     }
 

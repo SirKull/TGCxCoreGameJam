@@ -13,7 +13,6 @@ public class Level_Manager : MonoBehaviour
 
     //Scene references
     public Transform player;
-    public Transform startPosition;
     public Vector3 exitPosition;
     public List<Mailbox> mailboxes = new List<Mailbox>();
     public Trigger_Exit exit;
@@ -37,11 +36,6 @@ public class Level_Manager : MonoBehaviour
 
         scoreObject.SetActive(false);
         moneyUI.text = PlayerPrefs.GetInt("PlayerScore").ToString();
-
-        //temp
-        PlayerPrefs.SetFloat("X", startPosition.position.x);
-        PlayerPrefs.SetFloat("Y", startPosition.position.y);
-        PlayerPrefs.SetFloat("Z", startPosition.position.z);
 
         float xPos = PlayerPrefs.GetFloat("X");
         float yPos = PlayerPrefs.GetFloat("Y");

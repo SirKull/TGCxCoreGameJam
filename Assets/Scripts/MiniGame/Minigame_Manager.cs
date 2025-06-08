@@ -52,8 +52,7 @@ public class Minigame_Manager : MonoBehaviour
         letterDays.Add(day4Letters);
         letterDays.Add(day5Letters);
 
-        day = 1;
-        //day = PlayerPrefs.GetInt("Day");
+        day = PlayerPrefs.GetInt("Day");
 
         SetWeekdays(day);
         totalLetters = letterList.Count;

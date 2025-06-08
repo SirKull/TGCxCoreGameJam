@@ -7,9 +7,14 @@ using UnityEngine.Events;
 
 public class Dialogue : MonoBehaviour
 {
+    //references
     public GameObject dialogueBox;
     public GameObject characterPortrait;
-    
+    public GameObject background;
+    public Player_Inventory playerInventory;
+    public End_Condition endCondition;
+
+    //ui elements
     public TextMeshProUGUI bodyText;
     public TextMeshProUGUI titleText;
 
@@ -21,30 +26,35 @@ public class Dialogue : MonoBehaviour
     public Sprite charSprite;
     //character portrait destination
     public Image charPortrait;
+    //condition for giving item through dialogue
+    [SerializeField] private string itemGive;
 
+    //data
     public float textSpeed;
-
     public int index;
-
     public bool dialogueStarted;
 
     public UnityEvent endDialogueEvent = new UnityEvent();
 
-    private void Start()
+    private void Awake()
     {
+        endCondition = FindAnyObjectByType<End_Condition>();
+
         dialogueBox.SetActive(false);
         titleText.text = charName;
         bodyText.text = string.Empty;
 
         charPortrait.sprite = charSprite;
         characterPortrait.SetActive(false);
+        background.SetActive(false);
         dialogueStarted = false;
     }
 
-    public void StartDialogue()
+    public virtual void StartDialogue()
     {
         dialogueBox.SetActive(true);
         characterPortrait.SetActive(true);
+        background.SetActive(true);
 
         index = 0;
         StartCoroutine(TypeLine());
@@ -55,12 +65,19 @@ public class Dialogue : MonoBehaviour
     {
         dialogueBox.SetActive(false);
         characterPortrait.SetActive(false);
+        background.SetActive(false);
         bodyText.text = string.Empty;
         index = 0;
+
+        if (itemGive != null)
+        {
+            playerInventory = FindAnyObjectByType<Player_Inventory>();
+            playerInventory.inventory.Add(itemGive);
+        }
         dialogueStarted = false;
     }
 
-    IEnumerator TypeLine()
+    public IEnumerator TypeLine()
     {
         foreach(char c in lines[index].ToCharArray())
         {
@@ -69,7 +86,7 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    public void OnClick()
+    public virtual void OnClick()
     {
         if (bodyText.text == lines[index])
         {
@@ -82,7 +99,7 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    void NextLine()
+    public virtual void NextLine()
     {
         if(index < lines.Length - 1)
         {

@@ -7,6 +7,7 @@ public class Play_Game : MonoBehaviour
     public void OnClick()
     {
         PlayerPrefs.DeleteAll();
-        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+        SceneManager.LoadScene("Initialize");
+        SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
     }
 }
