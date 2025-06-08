@@ -14,11 +14,13 @@ public class Level_Manager : MonoBehaviour
     //Scene references
     public Transform player;
     public Vector3 exitPosition;
+    public Transform startPosition;
     public List<Mailbox> mailboxes = new List<Mailbox>();
     public Trigger_Exit exit;
 
     public int lettersDelivered;
     public bool allLettersDelivered;
+    public bool firstLoadIn;
 
     public Minigame_Data data;
 
@@ -42,7 +44,16 @@ public class Level_Manager : MonoBehaviour
         float zPos = PlayerPrefs.GetFloat("Z");
         exitPosition = new Vector3(xPos, yPos, zPos);
 
-        player.position = exitPosition;
+        if (firstLoadIn)
+        {
+            player.position = startPosition.transform.position;
+            firstLoadIn = false;
+        }
+        else
+        {
+            player.position = exitPosition;
+        }
+
         controller.enabled = true;
 
         exit.interactEvent.AddListener(ExitScene);
