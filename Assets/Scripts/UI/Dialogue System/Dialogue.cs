@@ -9,6 +9,8 @@ public class Dialogue : MonoBehaviour
 {
     public GameObject dialogueBox;
     public GameObject characterPortrait;
+    public GameObject background;
+    public Player_Inventory playerInventory;
     
     public TextMeshProUGUI bodyText;
     public TextMeshProUGUI titleText;
@@ -21,6 +23,7 @@ public class Dialogue : MonoBehaviour
     public Sprite charSprite;
     //character portrait destination
     public Image charPortrait;
+    [SerializeField] private string itemGive;
 
     public float textSpeed;
 
@@ -38,13 +41,15 @@ public class Dialogue : MonoBehaviour
 
         charPortrait.sprite = charSprite;
         characterPortrait.SetActive(false);
+        background.SetActive(false);
         dialogueStarted = false;
     }
 
-    public void StartDialogue()
+    public virtual void StartDialogue()
     {
         dialogueBox.SetActive(true);
         characterPortrait.SetActive(true);
+        background.SetActive(true);
 
         index = 0;
         StartCoroutine(TypeLine());
@@ -55,12 +60,19 @@ public class Dialogue : MonoBehaviour
     {
         dialogueBox.SetActive(false);
         characterPortrait.SetActive(false);
+        background.SetActive(false);
         bodyText.text = string.Empty;
         index = 0;
+
+        if (itemGive != null)
+        {
+            playerInventory = FindAnyObjectByType<Player_Inventory>();
+            playerInventory.inventory.Add(itemGive);
+        }
         dialogueStarted = false;
     }
 
-    IEnumerator TypeLine()
+    public IEnumerator TypeLine()
     {
         foreach(char c in lines[index].ToCharArray())
         {
@@ -69,7 +81,7 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    public void OnClick()
+    public virtual void OnClick()
     {
         if (bodyText.text == lines[index])
         {
@@ -82,7 +94,7 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    void NextLine()
+    public virtual void NextLine()
     {
         if(index < lines.Length - 1)
         {

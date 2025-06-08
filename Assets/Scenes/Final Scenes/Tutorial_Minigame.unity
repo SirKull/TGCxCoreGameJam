@@ -1387,7 +1387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16882b9dce126954c85a09cf43abaee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Test_Minigame
+  sceneName: Minigame_Final
   manager: {fileID: 2128981192}
 --- !u!1 &805580056
 GameObject:
