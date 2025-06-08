@@ -6,6 +6,7 @@ public class Minigame_Manager : MonoBehaviour
 {
     public Button_Letter buttonLetter;
     public Minigame_Data data;
+    public GameObject addressLetters;
 
     public int day;
 
@@ -42,6 +43,7 @@ public class Minigame_Manager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
+        addressLetters.SetActive(true);
         data = FindAnyObjectByType<Minigame_Data>();
 
         buttonLetter.grabLetterEvent.AddListener(GetLetter);
@@ -113,6 +115,7 @@ public class Minigame_Manager : MonoBehaviour
         if(lettersPlaced == totalLetters)
         {
             allLettersPlaced = true;
+            addressLetters.SetActive(false);
             data.lettersToDeliver = totalLetters;
         }
         else
