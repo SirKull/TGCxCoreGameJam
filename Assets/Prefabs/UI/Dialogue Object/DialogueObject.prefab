@@ -240,15 +240,15 @@ RectTransform:
   m_GameObject: {fileID: 2101592989754616458}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.759, y: 2.759, z: 2.759}
+  m_LocalScale: {x: 2.759, y: 3.1383626, z: 2.759}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5354981569796464325}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -80.0929, y: 22.3071}
-  m_SizeDelta: {x: 88.3342, y: 88.3342}
+  m_AnchoredPosition: {x: -80.0929, y: 47.5719}
+  m_SizeDelta: {x: 88.3342, y: 106.6487}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8983018618116354291
 CanvasRenderer:
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: ae0ead4b4f186a34abaf9d6468ce7c7e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -315,15 +315,15 @@ RectTransform:
   m_GameObject: {fileID: 3839592188672102356}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3491579467907181703}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -123.71387, y: 11.2468}
-  m_SizeDelta: {x: 1298.5781, y: 337.7875}
+  m_AnchoredPosition: {x: -138.88872, y: 59.0478}
+  m_SizeDelta: {x: 1328.9277, y: 478.9142}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3457736254984218121
 CanvasRenderer:
@@ -561,7 +561,7 @@ RectTransform:
   m_GameObject: {fileID: 6942417840855158238}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.78787, y: 0.78787, z: 0.78787}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 371877825034069333}
@@ -589,6 +589,8 @@ MonoBehaviour:
   dialogueBox: {fileID: 1163028204797935906}
   characterPortrait: {fileID: 4355248303931106268}
   background: {fileID: 3839592188672102356}
+  playerInventory: {fileID: 0}
+  endCondition: {fileID: 0}
   bodyText: {fileID: 3614881161032579847}
   titleText: {fileID: 8064480578179683274}
   charName: Bill
@@ -598,6 +600,7 @@ MonoBehaviour:
   - What is your name?
   charSprite: {fileID: 21300000, guid: 0142c0603af8e50419a14e93365dda22, type: 3}
   charPortrait: {fileID: 2181283585634030351}
+  itemGive: 
   textSpeed: 0.05
   index: 0
   dialogueStarted: 0

@@ -26,7 +26,6 @@ public class Fade : MonoBehaviour
                     image.color = new Color(0, 0, 0, i);
                     yield return null;
                 }
-                image.gameObject.SetActive(false);
             }
         }
     }

@@ -154,14 +154,17 @@ public class Player_Move : MonoBehaviour
 
     private void Jump()
     {
-        if (groundedTimer > 0 && isGrounded || jumpCount > 0)
+        if (canMove)
         {
-            jumpEvent?.Invoke();
-            jumpCount--;
+            if (groundedTimer > 0 && isGrounded || jumpCount > 0)
+            {
+                jumpEvent?.Invoke();
+                jumpCount--;
 
-            groundedTimer = 0f;
+                groundedTimer = 0f;
 
-            verticalVelocity += Mathf.Sqrt(jumpHeight * 2.0f * gravity);
+                verticalVelocity += Mathf.Sqrt(jumpHeight * 2.0f * gravity);
+            }
         }
     }
     private void Stand()

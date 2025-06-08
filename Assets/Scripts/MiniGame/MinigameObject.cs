@@ -9,6 +9,7 @@ public class MinigameObject : MonoBehaviour
     public Table table;
     public Minigame_Manager manager;
 
+    public GameObject imageObject;
     //address ID
     [Header("AD object ID is always 0")]
     public int objectID;
@@ -38,7 +39,7 @@ public class MinigameObject : MonoBehaviour
         {
             mousePosition = Mouse.current.position.ReadValue();
             this.GetComponent<RectTransform>().position = new Vector2(mousePosition.x, mousePosition.y);
-            Image image = GetComponent<Image>();
+            Image image = GetComponentInChildren<Image>();
             image.raycastTarget = false;
         }
     }
@@ -49,6 +50,7 @@ public class MinigameObject : MonoBehaviour
             objectHeld = true;
             manager.objectHeld = true;
             manager.heldLetterIndex = objectID;
+            imageObject.SetActive(true);
 
             if (objectInBag)
             {
@@ -61,7 +63,12 @@ public class MinigameObject : MonoBehaviour
     public void SetDown()
     {
         objectHeld = false;
-        Image image = GetComponent<Image>();
+        Image image = GetComponentInChildren<Image>();
         image.raycastTarget = true;
+    }
+
+    public void TurnOffObject()
+    {
+        imageObject.SetActive(false);
     }
 }
