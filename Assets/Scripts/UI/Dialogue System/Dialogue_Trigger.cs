@@ -40,7 +40,6 @@ public class Dialogue_Trigger : MonoBehaviour
             {
                 dialogue.OnClick();
             }
-
         }
     }
 }
