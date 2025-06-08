@@ -106,7 +106,6 @@ public class Conditional_Dialogue : Dialogue
             }
             else
             {
-                endDialogueEvent?.Invoke();
                 ExitDialogue();
             }
         }

@@ -660,7 +660,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 7274c6f7b9538a842bcee46d17edde40, type: 3}
     - target: {fileID: 1284701827956636474, guid: eafa55e9735a4bf40a3453cb88622b87, type: 3}
       propertyPath: m_Name
-      value: Image
+      value: envelope
       objectReference: {fileID: 0}
     - target: {fileID: 4822672727030932753, guid: eafa55e9735a4bf40a3453cb88622b87, type: 3}
       propertyPath: m_Pivot.x
@@ -1292,7 +1292,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 8872442e151a67a479403e3d7cd67d18, type: 3}
     - target: {fileID: 1284701827956636474, guid: eafa55e9735a4bf40a3453cb88622b87, type: 3}
       propertyPath: m_Name
-      value: Image (3)
+      value: cloth
       objectReference: {fileID: 0}
     - target: {fileID: 4822672727030932753, guid: eafa55e9735a4bf40a3453cb88622b87, type: 3}
       propertyPath: m_Pivot.x
@@ -1575,7 +1575,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: cad0912aa4c8b8f4488f40eebe0281ae, type: 3}
     - target: {fileID: 1284701827956636474, guid: eafa55e9735a4bf40a3453cb88622b87, type: 3}
       propertyPath: m_Name
-      value: Image (4)
+      value: receipt
       objectReference: {fileID: 0}
     - target: {fileID: 4822672727030932753, guid: eafa55e9735a4bf40a3453cb88622b87, type: 3}
       propertyPath: m_Pivot.x
@@ -2562,7 +2562,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 84828f126d476b5499eb32f0e0c61da4, type: 3}
     - target: {fileID: 1284701827956636474, guid: eafa55e9735a4bf40a3453cb88622b87, type: 3}
       propertyPath: m_Name
-      value: Image (3)
+      value: newspaper
       objectReference: {fileID: 0}
     - target: {fileID: 4822672727030932753, guid: eafa55e9735a4bf40a3453cb88622b87, type: 3}
       propertyPath: m_Pivot.x
@@ -4164,7 +4164,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 18c9fd0290d9dd045b762945ac9da0c2, type: 3}
     - target: {fileID: 1284701827956636474, guid: eafa55e9735a4bf40a3453cb88622b87, type: 3}
       propertyPath: m_Name
-      value: Image (5)
+      value: tape
       objectReference: {fileID: 0}
     - target: {fileID: 4822672727030932753, guid: eafa55e9735a4bf40a3453cb88622b87, type: 3}
       propertyPath: m_Pivot.x
@@ -7337,7 +7337,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: d2775419addada14096a5629066da7c8, type: 3}
     - target: {fileID: 1284701827956636474, guid: eafa55e9735a4bf40a3453cb88622b87, type: 3}
       propertyPath: m_Name
-      value: Image (1)
+      value: hammer
       objectReference: {fileID: 0}
     - target: {fileID: 4822672727030932753, guid: eafa55e9735a4bf40a3453cb88622b87, type: 3}
       propertyPath: m_Pivot.x
@@ -7455,7 +7455,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 28dfa4b0091607045bace9d4ab983667, type: 3}
     - target: {fileID: 1284701827956636474, guid: eafa55e9735a4bf40a3453cb88622b87, type: 3}
       propertyPath: m_Name
-      value: Image (1)
+      value: cane
       objectReference: {fileID: 0}
     - target: {fileID: 4822672727030932753, guid: eafa55e9735a4bf40a3453cb88622b87, type: 3}
       propertyPath: m_Pivot.x
@@ -7573,7 +7573,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 595b7f3856c1c0b48be35cc01637033b, type: 3}
     - target: {fileID: 1284701827956636474, guid: eafa55e9735a4bf40a3453cb88622b87, type: 3}
       propertyPath: m_Name
-      value: Image (5)
+      value: stamps
       objectReference: {fileID: 0}
     - target: {fileID: 4822672727030932753, guid: eafa55e9735a4bf40a3453cb88622b87, type: 3}
       propertyPath: m_Pivot.x
@@ -8744,7 +8744,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: e6d064a7d0c0c8d49842372f103437ee, type: 3}
     - target: {fileID: 1284701827956636474, guid: eafa55e9735a4bf40a3453cb88622b87, type: 3}
       propertyPath: m_Name
-      value: Image (2)
+      value: chips
       objectReference: {fileID: 0}
     - target: {fileID: 4822672727030932753, guid: eafa55e9735a4bf40a3453cb88622b87, type: 3}
       propertyPath: m_Pivot.x
@@ -8862,7 +8862,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 13b9eab466d45564c9ff27b5be857368, type: 3}
     - target: {fileID: 1284701827956636474, guid: eafa55e9735a4bf40a3453cb88622b87, type: 3}
       propertyPath: m_Name
-      value: Image (4)
+      value: syrup
       objectReference: {fileID: 0}
     - target: {fileID: 4822672727030932753, guid: eafa55e9735a4bf40a3453cb88622b87, type: 3}
       propertyPath: m_Pivot.x
@@ -8980,7 +8980,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: f2063634d851b9e4c8b8f017975207d5, type: 3}
     - target: {fileID: 1284701827956636474, guid: eafa55e9735a4bf40a3453cb88622b87, type: 3}
       propertyPath: m_Name
-      value: Image (2)
+      value: journal
       objectReference: {fileID: 0}
     - target: {fileID: 4822672727030932753, guid: eafa55e9735a4bf40a3453cb88622b87, type: 3}
       propertyPath: m_Pivot.x
@@ -10568,7 +10568,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 05b6d79503117624da8a5649c1ad0cd5, type: 3}
     - target: {fileID: 1284701827956636474, guid: eafa55e9735a4bf40a3453cb88622b87, type: 3}
       propertyPath: m_Name
-      value: Image
+      value: box
       objectReference: {fileID: 0}
     - target: {fileID: 4822672727030932753, guid: eafa55e9735a4bf40a3453cb88622b87, type: 3}
       propertyPath: m_Pivot.x

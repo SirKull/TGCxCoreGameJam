@@ -7,11 +7,14 @@ using UnityEngine.Events;
 
 public class Dialogue : MonoBehaviour
 {
+    //references
     public GameObject dialogueBox;
     public GameObject characterPortrait;
     public GameObject background;
     public Player_Inventory playerInventory;
-    
+    public End_Condition endCondition;
+
+    //ui elements
     public TextMeshProUGUI bodyText;
     public TextMeshProUGUI titleText;
 
@@ -23,18 +26,20 @@ public class Dialogue : MonoBehaviour
     public Sprite charSprite;
     //character portrait destination
     public Image charPortrait;
+    //condition for giving item through dialogue
     [SerializeField] private string itemGive;
 
+    //data
     public float textSpeed;
-
     public int index;
-
     public bool dialogueStarted;
 
     public UnityEvent endDialogueEvent = new UnityEvent();
 
-    private void Start()
+    private void Awake()
     {
+        endCondition = FindAnyObjectByType<End_Condition>();
+
         dialogueBox.SetActive(false);
         titleText.text = charName;
         bodyText.text = string.Empty;
