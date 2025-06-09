@@ -18,6 +18,11 @@ public class Pause_Menu : MonoBehaviour
         audioMixer.SetFloat("MainVolume", volume);
     }
 
+    public void SetMusicVolume(float volume)
+    {
+        audioMixer.SetFloat("MusicVolume", volume);
+    }
+
     public void QuitMenu()
     {
         SceneManager.LoadScene("Main Menu");

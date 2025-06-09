@@ -75,6 +75,7 @@ public class Level_Manager : MonoBehaviour
         {
             allLettersDelivered = true;
             homeObject.SetActive(true);
+            StartCoroutine(ExitScene());
         }
     }
 

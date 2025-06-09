@@ -98,7 +98,7 @@ public class Tutorial_Manager : MonoBehaviour
         {
             button.SetActive(true);
         }
-        if (tutorialID == 12)
+        if (tutorialID == 15)
         {
             button.SetActive(false);
         }
