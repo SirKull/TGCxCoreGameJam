@@ -95,6 +95,7 @@ public class Address_Bag : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             if ((addressValue - 1) == i)
             {
+                letter3dObjects[i].gameObject.SetActive(false);
                 data.addresses[i].RemoveAll(item => item == letterID);
             }
         }
@@ -102,7 +103,6 @@ public class Address_Bag : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             if(i == (letter2dObjects.Count - 1))
             {
-                letter3dObjects[i].gameObject.SetActive(false);
                 MinigameObject targetObject = letter2dObjects[i].GetComponent<MinigameObject>();
                 targetObject.OnClick();
                 letter2dObjects.Remove(targetObject.gameObject);
