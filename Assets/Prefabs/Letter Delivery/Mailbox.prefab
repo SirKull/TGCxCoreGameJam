@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9208521012364975859}
   - component: {fileID: 1878717163548186991}
-  - component: {fileID: 8974839233683194861}
   m_Layer: 0
   m_Name: Mailbox
   m_TagString: Untagged
@@ -52,29 +51,10 @@ MonoBehaviour:
   upFlag: {fileID: 5004567221906669064}
   downFlag: {fileID: 6721045611374760063}
   trigger: {fileID: 0}
-  outline: {fileID: 8974839233683194861}
   letters: 
   deliverEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8974839233683194861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1152838418156437436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.7735849, g: 0.5881889, b: 0, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &5004567221906669064
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,13 +281,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6721045611374760063}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.39813384, y: 2.4911826, z: 0.38382453}
+  m_LocalRotation: {x: -1, y: -0, z: -0, w: 0.000000014901161}
+  m_LocalPosition: {x: -0.39813384, y: 2.567, z: 0.459}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6347364669970856813}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -180, y: 0, z: 0}
 --- !u!33 &7601682575214648446
 MeshFilter:
   m_ObjectHideFlags: 0
