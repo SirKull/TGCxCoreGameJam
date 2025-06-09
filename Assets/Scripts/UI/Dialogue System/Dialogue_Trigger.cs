@@ -24,7 +24,10 @@ public class Dialogue_Trigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             canInteract = false;
-            dialogue.ExitDialogue();
+            if (dialogue.dialogueStarted)
+            {
+                dialogue.ExitDialogue();
+            }
         }
     }
 

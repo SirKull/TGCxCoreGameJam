@@ -10,6 +10,7 @@ public class Trigger_Exit : MonoBehaviour
 
     private void Start()
     {
+        manager = FindAnyObjectByType<Level_Manager>();
         Player_Input.interactAction += Interact;
     }
 
@@ -33,7 +34,7 @@ public class Trigger_Exit : MonoBehaviour
     {
         if (triggered)
         {
-            interactEvent?.Invoke();
+            StartCoroutine(manager.ExitScene());
         }
     }
 }

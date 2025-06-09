@@ -1,17 +1,22 @@
 using NUnit.Framework;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Level_Manager : MonoBehaviour
 {
     //UI
     public GameObject scoreObject;
+    public GameObject homeObject;
     public TextMeshProUGUI lettersText;
     public TextMeshProUGUI payText;
     public TextMeshProUGUI moneyUI;
 
     //Scene references
+    [Header("Night Scene")]
+    [SerializeField] private string sceneName;
     public Transform player;
     public Vector3 exitPosition;
     public Transform startPosition;
@@ -30,6 +35,7 @@ public class Level_Manager : MonoBehaviour
 
     void Awake()
     {
+        homeObject.SetActive(false);
         player = GameObject.FindGameObjectWithTag("Player").transform;
         data = FindAnyObjectByType<Minigame_Data>();
         CharacterController controller = player.GetComponent<CharacterController>();
@@ -56,8 +62,6 @@ public class Level_Manager : MonoBehaviour
 
         controller.enabled = true;
 
-        exit.interactEvent.AddListener(ExitScene);
-
         foreach (Mailbox mailbox in mailboxes)
         {
             mailbox.deliverEvent.AddListener(CheckMailDelivered);
@@ -70,8 +74,7 @@ public class Level_Manager : MonoBehaviour
         if(lettersDelivered == data.lettersToDeliver)
         {
             allLettersDelivered = true;
-
-            CheckScore();
+            homeObject.SetActive(true);
         }
     }
 
@@ -101,11 +104,14 @@ public class Level_Manager : MonoBehaviour
         }
     }
 
-    void ExitScene()
+    public IEnumerator ExitScene()
     {
         if(allLettersDelivered)
         {
-
+            homeObject.SetActive(false);
+            CheckScore();
+            yield return new WaitForSeconds(8f);
+            SceneManager.LoadScene(sceneName);
         }
     }
 }

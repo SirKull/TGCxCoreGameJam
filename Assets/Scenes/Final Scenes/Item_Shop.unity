@@ -1637,8 +1637,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Not Enough Money
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ddb653940576eac408c258be2f44c652, type: 2}
+  m_sharedMaterial: {fileID: -1006528522572653656, guid: ddb653940576eac408c258be2f44c652, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7497,7 +7497,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: fc2c23281b3ea29408d9c8f2b0f37de3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
