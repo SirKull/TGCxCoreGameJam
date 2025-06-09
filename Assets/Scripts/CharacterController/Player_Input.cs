@@ -12,6 +12,7 @@ public class Player_Input : MonoBehaviour
     private InputAction crouch;
     private InputAction jump;
     private InputAction glide;
+    private InputAction pause;
 
     //player actions
     public static Action interactAction;
@@ -20,6 +21,7 @@ public class Player_Input : MonoBehaviour
     public static Action jumpAction;
     public static Action glideAction;
     public static Action glideStopAction;
+    public static Action pauseAction;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -52,6 +54,10 @@ public class Player_Input : MonoBehaviour
         glide = playerActions.Player.Glide;
         glide.Enable();
         glide.performed += Glide;
+
+        pause = playerActions.Player.Pause;
+        pause.Enable();
+        pause.performed += Pause;
     }
 
     private void OnDisable()
@@ -60,6 +66,7 @@ public class Player_Input : MonoBehaviour
         interact.Disable();
         crouch.Disable();
         jump.Disable();
+        pause.Disable();
     }
 
     private void Interact(InputAction.CallbackContext context)
@@ -92,5 +99,10 @@ public class Player_Input : MonoBehaviour
         {
             glideStopAction?.Invoke();
         }
+    }
+
+    private void Pause(InputAction.CallbackContext context)
+    {
+        pauseAction?.Invoke();
     }
 }

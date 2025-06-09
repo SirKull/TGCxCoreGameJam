@@ -3,10 +3,17 @@ using UnityEngine.Events;
 
 public class Tutorial_AddressBag : Address_Bag
 {
+    public GameObject letter3d;
+
     public Tutorial_Letter tutorialLetter;
     public Tutorial_Manager tutorialManager;
 
     public UnityEvent tutorialEvent = new UnityEvent();
+
+    private void Awake()
+    {
+        letter3d.SetActive(false);
+    }
 
     public override void OnClick()
     {
@@ -18,6 +25,11 @@ public class Tutorial_AddressBag : Address_Bag
             tutorialLetter.objectExitEvent.AddListener(RemoveLetter);
 
             canClick = false;
+
+            tutorialLetter.TurnOffObject();
+
+            letter3d.SetActive(true);
+
 
             tutorialEvent?.Invoke();
             //add 1 letter
@@ -45,6 +57,7 @@ public class Tutorial_AddressBag : Address_Bag
     public override void RemoveLetter()
     {
         int letterID = tutorialManager.heldLetterIndex;
+        letter3d.SetActive(false);
 
         //subtract 1 letter
         tutorialManager.CheckLettersPlaced(-1);

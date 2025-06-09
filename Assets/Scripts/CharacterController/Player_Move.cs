@@ -11,6 +11,8 @@ public class Player_Move : MonoBehaviour
     public Player_Input input;
     public GameObject pidgeModel;
 
+    public GameObject pauseObject;
+
     [Header("Player Stats")]
     [SerializeField] private float defaultGravity = 9.81f;
     [SerializeField] private float glideGravity = 4.9f;
@@ -55,6 +57,7 @@ public class Player_Move : MonoBehaviour
         Player_Input.standAction += Stand;
         Player_Input.glideAction += StartGlide;
         Player_Input.glideStopAction += StopGlide;
+        Player_Input.pauseAction += Pause;
     }
 
     // Update is called once per frame
@@ -188,5 +191,10 @@ public class Player_Move : MonoBehaviour
     {
         //reset gravity
         gravity = defaultGravity;
+    }
+
+    private void Pause()
+    {
+        pauseObject.SetActive(true);
     }
 }

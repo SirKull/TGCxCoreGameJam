@@ -62,9 +62,12 @@ public class MinigameObject : MonoBehaviour
 
     public void SetDown()
     {
-        objectHeld = false;
-        Image image = GetComponentInChildren<Image>();
-        image.raycastTarget = true;
+        if (!objectInBag)
+        {
+            objectHeld = false;
+            Image image = GetComponentInChildren<Image>();
+            image.raycastTarget = true;
+        }
     }
 
     public void TurnOffObject()
