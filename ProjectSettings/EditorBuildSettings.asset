@@ -12,11 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Final Scenes/Initialize.unity
     guid: cbba4b5e4a7dd70498632e1424c010d0
   - enabled: 1
-    path: Assets/Scenes/Final Scenes/Tutorial_Minigame.unity
-    guid: 4bd67b395ac69a542949b5b49e7fa43f
-  - enabled: 1
     path: Assets/Scenes/Final Scenes/Scene_Intro.unity
     guid: dee24635829a25a4285cffaa1371d71d
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/Tutorial_Minigame.unity
+    guid: 4bd67b395ac69a542949b5b49e7fa43f
   - enabled: 1
     path: Assets/Scenes/Final Scenes/Item_Shop.unity
     guid: 62c69668a5e460d4b9d934c333cbc999
@@ -30,14 +30,26 @@ EditorBuildSettings:
     path: Assets/Scenes/Final Scenes/Day_1_Night.unity
     guid: 1669987c10ec8a5458e9c023627c76d6
   - enabled: 1
+    path: Assets/Scenes/Final Scenes/Day_2_Delivery.unity
+    guid: 1380c27d8fdee2741ab3aae483c9f2a3
+  - enabled: 1
     path: Assets/Scenes/Final Scenes/Day_2_Night.unity
     guid: c40d64158175c8e408c438ad13025c3a
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/Day_3_Delivery.unity
+    guid: 06435c55c1f29d2499e1238736a4b9c9
   - enabled: 1
     path: Assets/Scenes/Final Scenes/Day_3_Night.unity
     guid: 3c46c1f6cd5247f43afebe9b9fc13d96
   - enabled: 1
+    path: Assets/Scenes/Final Scenes/Day_4_Delivery.unity
+    guid: a7b4fc2e07e75154ca6c69b0cf087b4b
+  - enabled: 1
     path: Assets/Scenes/Final Scenes/Day_4_Night.unity
     guid: 9fd0b474e478fe348b575f0f886be3c7
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/Day_5_Delivery.unity
+    guid: 7f4a64deba9bb8c4bb945f916a275546
   - enabled: 1
     path: Assets/Scenes/Final Scenes/Day_5_Night.unity
     guid: 00aa502766077a344934d909ee71372a

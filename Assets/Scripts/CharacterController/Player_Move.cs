@@ -1,8 +1,5 @@
-using System;
-using UnityEditor.SceneTemplate;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.EventSystems;
 
 public class Player_Move : MonoBehaviour
 {

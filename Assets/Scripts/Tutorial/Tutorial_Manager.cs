@@ -39,7 +39,11 @@ public class Tutorial_Manager : MonoBehaviour
         [9] = "Once you've sorted all the letters, you can start with delivery.",
         [10] = "This is a temp gig, so you're only getting paid if you deliver the letters to the right houses.",
         [11] = "When you start delivering, you won't be able to make any changes to where the letters are going.",
-        [12] = "Okay, looks like you're ready for the real thing!"
+        [12] = "Oh, one more thing. We have to deliver ads to the houses.",
+        [13] = "It doesn't really matter where they go, but you'll earn a bonus if the ad results in a sale.",
+        [13] = "Try to guess which house would want the product based on the ad.",
+        [14] = "You won't get in trouble if you deliver it to the wrong address, so don't worry too much,",
+        [15] = "Okay, looks like you're ready for the real thing!"
     };
 
     //carryover from main minigame manager
