@@ -10,9 +10,13 @@ public class Mailbox : MonoBehaviour
     [Header("Address Index")]
     [SerializeField] private int addressNumber;
 
+    public GameObject upFlag;
+    public GameObject downFlag;
+
     private Level_Manager manager;
     private Minigame_Data data;
     public Trigger_Interact trigger;
+    public Outline outline;
 
     public List<int> letters = new List<int>(); 
     public UnityEvent deliverEvent = new UnityEvent();
@@ -20,10 +24,15 @@ public class Mailbox : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
+        outline.OutlineMode = Outline.Mode.OutlineVisible;
+
         mailDelivered = false;
         trigger = GetComponentInChildren<Trigger_Interact>();
         data = FindAnyObjectByType<Minigame_Data>();
         trigger.triggerEvent.AddListener(DeliverMail);
+
+        upFlag.SetActive(true);
+        downFlag.SetActive(false);
     }
 
     private void DeliverMail()
@@ -42,6 +51,11 @@ public class Mailbox : MonoBehaviour
                     mailDelivered = true;
                 }
             }
+
+            outline.OutlineMode = Outline.Mode.OutlineHidden;
+
+            upFlag.SetActive(false);
+            downFlag.SetActive(true);
         }
     }
 }

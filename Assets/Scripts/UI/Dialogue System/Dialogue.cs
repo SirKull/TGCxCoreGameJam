@@ -19,7 +19,7 @@ public class Dialogue : MonoBehaviour
     public TextMeshProUGUI titleText;
 
     //character name
-    [SerializeField] private string charName;
+    public string charName;
     //lines in dialogue object
     public string[] lines;
     //character portraits
@@ -27,7 +27,9 @@ public class Dialogue : MonoBehaviour
     //character portrait destination
     public Image charPortrait;
     //condition for giving item through dialogue
-    [SerializeField] private string itemGive;
+    public string itemGive;
+
+    public bool itemGave;
 
     //data
     public float textSpeed;
@@ -48,6 +50,7 @@ public class Dialogue : MonoBehaviour
         characterPortrait.SetActive(false);
         background.SetActive(false);
         dialogueStarted = false;
+        itemGave = false;
     }
 
     public virtual void StartDialogue()
@@ -61,7 +64,7 @@ public class Dialogue : MonoBehaviour
         dialogueStarted = true; 
     }
 
-    public void ExitDialogue()
+    public virtual void ExitDialogue()
     {
         dialogueBox.SetActive(false);
         characterPortrait.SetActive(false);
@@ -69,10 +72,11 @@ public class Dialogue : MonoBehaviour
         bodyText.text = string.Empty;
         index = 0;
 
-        if (itemGive != null)
+        if (itemGive != null && !itemGave)
         {
             playerInventory = FindAnyObjectByType<Player_Inventory>();
             playerInventory.inventory.Add(itemGive);
+            itemGave = true;
         }
         dialogueStarted = false;
     }

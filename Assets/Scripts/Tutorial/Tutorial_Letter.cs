@@ -11,6 +11,7 @@ public class Tutorial_Letter : MinigameObject
             objectHeld = true;
             tutorialManager.objectHeld = true;
             tutorialManager.heldLetterIndex = objectID;
+            imageObject.SetActive(true);
 
             if (objectInBag)
             {

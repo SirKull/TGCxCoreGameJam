@@ -17,13 +17,16 @@ public class Conditional_Dialogue : Dialogue
     {
         inventory = FindAnyObjectByType<Player_Inventory>();
 
-        for(int i = 0; i< inventory.inventory.Count; i++)
-        {
-            if (inventory.inventory[i] == neededObject)
-            {
-                hasObject = true;
-            }
-        }
+        endCondition = FindAnyObjectByType<End_Condition>();
+
+        dialogueBox.SetActive(false);
+        titleText.text = charName;
+        bodyText.text = string.Empty;
+
+        charPortrait.sprite = charSprite;
+        characterPortrait.SetActive(false);
+        background.SetActive(false);
+        dialogueStarted = false;
     }
 
     public override void StartDialogue()
@@ -31,6 +34,14 @@ public class Conditional_Dialogue : Dialogue
         dialogueBox.SetActive(true);
         characterPortrait.SetActive(true);
         background.SetActive(true);
+
+        for (int i = 0; i < inventory.inventory.Count; i++)
+        {
+            if (inventory.inventory[i] == neededObject)
+            {
+                hasObject = true;
+            }
+        }
 
         index = 0;
 
@@ -43,6 +54,23 @@ public class Conditional_Dialogue : Dialogue
             StartCoroutine(TypeLine());
         }
             dialogueStarted = true;
+    }
+
+    public override void ExitDialogue()
+    {
+        dialogueBox.SetActive(false);
+        characterPortrait.SetActive(false);
+        background.SetActive(false);
+        bodyText.text = string.Empty;
+        index = 0;
+
+        if (itemGive != null && !itemGave && hasObject)
+        {
+            playerInventory = FindAnyObjectByType<Player_Inventory>();
+            playerInventory.inventory.Add(itemGive);
+            itemGave = true;
+        }
+        dialogueStarted = false;
     }
 
     IEnumerator TypeObjectLine()
