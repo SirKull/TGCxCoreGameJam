@@ -35,7 +35,7 @@ public class Tutorial_Manager : MonoBehaviour
         [5] = "Yup, see? The sender didn't quite get the address number right.",
         [6] = "Open up the address book to see all the addresses in Sealem.",
         [7] = "Ok, looks like the sender got the name right but was off with the house number.",
-        [8] = "Go ahead and put that letter in the '103' bag, since that's where that person lives.",
+        [8] = "Go ahead and put that letter in the '5 Sealem Road' bag, since that's where that person lives.",
         [9] = "Once you've sorted all the letters, you can start with delivery.",
         [10] = "This is a temp gig, so you're only getting paid if you deliver the letters to the right houses.",
         [11] = "When you start delivering, you won't be able to make any changes to where the letters are going.",
